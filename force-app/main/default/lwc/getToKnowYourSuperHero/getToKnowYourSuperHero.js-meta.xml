@@ -14,7 +14,7 @@
         <!--<target>lightningSnapin__ChatMessage</target>-->
         <!--<target>lightningSnapin__Minimized</target>-->
         <!--<target>lightningSnapin__PreChat</target>-->
-        <!--<target>lightningSnapin__ChatHeader</target>-->
+        <!--<target>lightningSnapin__ChatHeader</target>--> 
         <target>lightningCommunity__Page</target>
         <target>lightningCommunity__Default</target>
         <target>lightningCommunity__Page_Layout</target>

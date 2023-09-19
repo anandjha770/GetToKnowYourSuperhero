@@ -6,6 +6,7 @@ export default class GetToKnowYourSuperHero extends LightningElement {
     @track isModalOpen = false;
     @api showSuperHeroes = false;
 
+    
     @track tempResponse = [];
     @track forActualPrint = [];
     filterCriteria = '';
