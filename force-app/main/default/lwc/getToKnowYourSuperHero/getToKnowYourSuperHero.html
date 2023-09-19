@@ -1,0 +1,57 @@
+<template>
+    <lightning-card variant="Narrow" title="Hello" icon-name="standard:account">
+        <div style="margin: 0px 30px 0px 30px;">
+            <lightning-input name="enter-search" label="Enter the Category of SuperHero and Press Enter" type="search"
+                lwc:ref="searchInput"></lightning-input>
+            <button class="slds-button slds-button_brand" onclick={filterHandle}>Click here to filter</button>
+            <button class="slds-button slds-button_brand" onclick={resetSearch}>Reset Search</button>
+        </div>
+        <template if:true={showSuperHeroes}>
+            <div class="container">
+                <div class="slds-grid slds-gutters slds-wrap jsutify-center">
+                    <template for:each={forActualPrint} for:item="heros">
+                        <div class="card slds-m-around_medium" key={heros.id}
+                            style="margin-left: 70px; background-color: rgb(236, 173, 173); border-radius: 18px;">
+                            <img class="card-image" src={heros.images.sm}
+                                style="border-top-left-radius: 18px; border-top-right-radius: 18px">
+                            <div class="card-text" style="text-align: center;">
+                                <span style="color: black; font-size: medium; ;">{heros.name}</span>
+                            </div>
+                            <div class="know-more-block">
+                                <button label="Click To Know More" title="Click To Know More" onclick={showModal}
+                                    data-item={heros.id} class="slds-button slds-button_neutral slds-button_stretch"
+                                    style="background: #ffffff;">Click To Know More</button>
+                            </div>
+                        </div>
+                    </template>
+                </div>
+            </div>
+            <section role="dialog" tabindex="-1" aria-modal="true" aria-labelledby="modal-heading-01"
+                class={modalClass}>
+                <div class="slds-modal__container">
+                    <button class="slds-button slds-button_icon slds-modal__close slds-button_icon-inverse"
+                        title="Close">
+                        <lightning-icon icon-name="utility:close" alternative-text="Close" variant="inverse"
+                            size="small" onclick={closeModal}></lightning-icon>
+                    </button>
+                    <div class="slds-modal__header">
+                        <h1 id="modal-heading-01" class="slds-modal__title slds-hyphenate" tabindex="-1">
+                            {selectedHero.name}
+                        </h1>
+                    </div>
+                    <div class="slds-modal__content slds-p-around_medium" id="modal-content-id-1"
+                        style="text-align: center;">
+                        <div class="modal-image">
+                            <img src="selectedHero.images.sm" alt={selectedHero.name}>
+                        </div>
+                        <div class="all-details">
+                            <h4><strong>Appearance</strong></h4>
+                            <!-- <h6>Gender : {selectedHero.appearance.gender}</h6> -->
+                        </div>
+                    </div>
+                </div>
+            </section>
+        </template>
+        <!-- <div class="slds-backdrop slds-backdrop_open" role="presentation"></div> -->
+    </lightning-card>
+</template>
